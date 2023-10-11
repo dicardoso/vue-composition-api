@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <h2>{{  appTitle }}</h2>
     <h3>{{ counterTitle }}</h3>
     <div>
       <button class="btn" @click="decreaseCounter">-</button>
@@ -50,6 +51,8 @@ function decreaseCounterReactive() {
 function increaseCounterReactive() {
   counterData.count++
 }
+
+const appTitle = "My Amazing App"
 
 </script>
 
