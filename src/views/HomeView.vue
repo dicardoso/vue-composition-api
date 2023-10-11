@@ -8,7 +8,20 @@
   </div>
 </template>
 
-<script >
+<script setup>
+import { ref } from 'vue'
+
+const counter = ref(0)
+
+function decreaseCounter() {
+  counter.value--
+}
+function increaseCounter() {
+  counter.value++
+}
+</script>
+
+<!-- <script >
 import {ref} from 'vue'
 export default {
   setup() {
@@ -25,7 +38,7 @@ export default {
     }
   }
 }
-</script>
+</script> -->
 
 <!-- <script>
 export default {
@@ -50,7 +63,8 @@ export default {
   padding: 20px;
 }
 
-.btn, .counter{
+.btn,
+.counter {
   font-size: 40px;
   margin: 10px;
 }
