@@ -11,21 +11,46 @@
       <h4>Edit counter title:</h4>
       <input v-model="counterTitle" type="text">
     </div>
+
+    <h3>{{ counterData.title }}</h3>
+    <div>
+      <button class="btn" @click="decreaseCounterReactive">-</button>
+      <span class="counter">{{ counterData.count }}</span>
+      <button class="btn" @click="increaseCounterReactive">+</button>
+    </div>
+
+    <div class="edit">
+      <h4>Edit counter reactive title:</h4>
+      <input v-model="counterData.title" type="text">
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 
+//Ref
 const counter = ref(0),
       counterTitle = ref("My Counter")
-
 function decreaseCounter() {
   counter.value--
 }
 function increaseCounter() {
   counter.value++
 }
+
+//Reactive
+const counterData = reactive({
+  count: 0,
+  title: 'My Counter'
+})
+function decreaseCounterReactive() {
+  counterData.count--
+}
+function increaseCounterReactive() {
+  counterData.count++
+}
+
 </script>
 
 <style>
@@ -40,6 +65,7 @@ function increaseCounter() {
   margin: 10px;
 }
 .edit {
-  margin-top: 60px;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 </style>
