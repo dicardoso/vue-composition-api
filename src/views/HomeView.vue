@@ -15,9 +15,11 @@
 
     <h3>{{ counterData.title }}</h3>
     <div>
-      <button class="btn" @click="decreaseCounterReactive">-</button>
+      <button class="btn" @click="decreaseCounterReactive(2)">--</button>
+      <button class="btn" @click="decreaseCounterReactive(1)">-</button>
       <span class="counter">{{ counterData.count }}</span>
-      <button class="btn" @click="increaseCounterReactive">+</button>
+      <button class="btn" @click="increaseCounterReactive(1, $event)">+</button>
+      <button class="btn" @click="increaseCounterReactive(2)">++</button>
     </div>
 
     <div class="edit">
@@ -45,11 +47,12 @@ const counterData = reactive({
   count: 0,
   title: 'My Counter'
 })
-function decreaseCounterReactive() {
-  counterData.count--
+function decreaseCounterReactive(value) {
+  counterData.count -= value
 }
-function increaseCounterReactive() {
-  counterData.count++
+function increaseCounterReactive(value, e) {
+  console.log(e)
+  counterData.count += value
 }
 
 const appTitle = "My Amazing App"
